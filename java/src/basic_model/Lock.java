@@ -4,7 +4,7 @@ public class Lock {
     public static void main(String[] args) throws InterruptedException {
         class Counter{
             private int counter =0 ;
-            public void increment() {++counter;}
+            public synchronized void increment() {++counter;}
             public int getCounter() {return counter;}
         }
 
