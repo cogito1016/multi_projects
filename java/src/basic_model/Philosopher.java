@@ -3,12 +3,18 @@ package basic_model;
 import java.util.Random;
 
 public class Philosopher extends Thread{
-    private boolean left, right;
+    private boolean first, second;
     private Random random;
 
     public Philosopher(boolean left, boolean right){
-        this.left = left;
-        this.right = right;
+        if(left.getId() < right.getId()){
+            first = left;
+            second = right;
+        }else{
+            first = right;
+            second = left;
+        }
+
         random = new Random();
     }
 
@@ -16,8 +22,8 @@ public class Philosopher extends Thread{
         try{
             while(true){
                 Thread.sleep(random.nextInt(1000));
-                synchronized (left){
-                    synchronized (right){
+                synchronized (first){
+                    synchronized (second){
                         Thread.sleep(random.nextInt(1000));
                     }
                 }
