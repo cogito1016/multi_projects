@@ -34,7 +34,7 @@ public class Downloader extends Thread{
             listenersCopy = (ArrayList<ProgressListener>)listeners.clone();
         }
         for(ProgressListener listener : listenersCopy){
-            listener.onProgress(n);
+//            listener.onProgress(n);
         }
     }
 
